@@ -1,0 +1,33 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+}
+
+/* initial state of the link */
+.link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+    color: slateblue;
+}
+
+/* initial state of the arrow */
+.link__arrow {
+    display: block;
+    width: 1.25rem;
+    aspect-ratio: 1;
+    stroke: var(--link-arrow-stroke, slateblue);
+    translate: var(--link-arrow-translate, 0);
+}
+
+/* hover state of the link */
+.link:hover {
+    color: deeppink;
+
+    /* hover state of the arrow inside the link */
+    --link-arrow-stroke: deeppink;
+    --link-arrow-translate: .5rem;
+}

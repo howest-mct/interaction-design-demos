@@ -1,0 +1,49 @@
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+}
+
+/* initial state of the link */
+.link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+    color: slateblue;
+    transition: all .1s;
+    /* = */
+    transition-property: all;
+    transition-duration: .1s;
+    /* ease is the default */
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+/* initial state of the arrow */
+.link__arrow {
+    display: block;
+    width: 1.25rem;
+    aspect-ratio: 1;
+    stroke: slateblue;
+    /* inherit the transition properties of the link */
+    transition: inherit;
+    /* tweak the transition of the arrow */
+    transition-property: stroke, translate;
+    /* the translate property will have a delay when not hovering the link */
+    transition-delay: 0s, .2s;
+}
+
+/* hover state of the link */
+.link:hover {
+    color: deeppink;
+
+    /* hover state of the arrow inside the link */
+    .link__arrow {
+        translate: .5rem;
+        stroke: deeppink;
+        /* remove the delay when the link is hovered */
+        transition-delay: 0s;
+    }
+}

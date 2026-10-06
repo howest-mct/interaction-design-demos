@@ -1,0 +1,20 @@
+:root {
+    interpolate-size: allow-keywords;
+}
+
+body {
+    padding: 2rem;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+::details-content {
+    transition: all .5s;
+    transition-behavior: allow-discrete;
+    height: 0;
+    overflow: clip;
+}
+
+details[open]::details-content {
+    height: auto;
+}

@@ -1,0 +1,10 @@
+.toggle-popover {
+    anchor-name: --button;
+}
+
+.popover {
+    margin: 0;
+    position: absolute;
+    left: anchor(--button left);
+    top: anchor(--button bottom);
+}

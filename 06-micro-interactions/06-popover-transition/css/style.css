@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: sans-serif;
+    padding: 2rem;
+}
+
+.popover {
+    /* position it where you want with margin: top right bottom left */
+    margin: auto 1rem 1rem auto;
+
+    /* after it's closed make it invisible */
+    opacity: 0;
+    /* and move it up or any direction you want */
+    translate: 0 -2rem;
+
+    /* make sure that allow-discrete is present */
+    transition: all 0.1s allow-discrete;
+
+    /* tweak the timing function to your liking */
+    transition-timing-function: ease-out;
+
+    /* style it */
+    padding: 1rem;
+    background-color: hotpink;
+    color: white;
+    border-radius: 10px;
+}
+
+/* when it's open make it visible and move it to it's original position */
+.popover:popover-open {
+    opacity: 1;
+    translate: 0;
+}
+
+/* Before it is open */
+@starting-style {
+    .popover:popover-open {
+        /* make it invisible */
+        opacity: 0;
+        /* and move it to the left or any direction you want */
+        translate: 2rem 0;
+
+        /* tweak the timing function to your liking */
+        transition-timing-function: ease-in;
+    }
+}

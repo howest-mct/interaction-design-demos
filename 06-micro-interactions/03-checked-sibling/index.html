@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checked sibling</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <ul class="checkboxes">
+        <li class="checkbox">
+            <input class="checkbox__input" type="checkbox" name="checkthisout" id="checkthisout">
+            <label class="checkbox__label" for="checkthisout">Make me red</label>
+            <span class="checkbox__span">And me</span>
+        </li>
+        <li class="checkbox">
+            <input class="checkbox__input hide-accessible" type="checkbox" name="checkthisout2" id="checkthisout2">
+            <label class="checkbox__label checkbox__label--tag" for="checkthisout2">Make me red</label>
+        </li>
+        <li class="checkbox">
+            <input class="checkbox__input hide-accessible" type="checkbox" name="checkthisout3" id="checkthisout3">
+            <label class="checkbox__label" for="checkthisout3">
+                <span class="checkbox__fake">
+                    <svg class="checkbox__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                Make me red
+            </label>
+        </li>
+    </ul>
+</body>
+
+</html>
