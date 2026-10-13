@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct labels</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <main class="demo">
+        <label class="demo__toggle">
+            <input type="checkbox" id="grayscale">
+            View in grayscale (a black and white print, or color blindness)
+        </label>
+
+        <div class="demo__charts" id="charts">
+            <figure>
+                <figcaption>With a legend</figcaption>
+                <svg class="chart" id="chart-legend" viewBox="-12 -10 128 70" role="img" aria-labelledby="legend-title legend-desc">
+                    <title id="legend-title">Visitors per month by channel, with a legend</title>
+                    <desc id="legend-desc">Search grows the fastest, social peaks in May, mail stays flat.</desc>
+                </svg>
+            </figure>
+
+            <figure>
+                <figcaption>With direct labels</figcaption>
+                <svg class="chart" id="chart-direct" viewBox="-12 -10 128 70" role="img" aria-labelledby="direct-title direct-desc">
+                    <title id="direct-title">Visitors per month by channel, with direct labels</title>
+                    <desc id="direct-desc">Search grows the fastest, social peaks in May, mail stays flat.</desc>
+                </svg>
+            </figure>
+        </div>
+
+        <p class="demo__hint">With the legend you look back and forth, and in grayscale blue and teal look alike. A label at the end of the line says it right away.</p>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data to chart</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+    <figure class="demo">
+        <!-- JavaScript fills this SVG from data.json: gridlines, bars and labels -->
+        <svg class="chart" id="chart" viewBox="-12 -8 114 68" role="img" aria-labelledby="chart-title chart-desc">
+            <title id="chart-title">Visitors per day</title>
+            <desc id="chart-desc"></desc>
+        </svg>
+
+        <!-- The same data as a table, also generated from data.json: one source of truth -->
+        <details class="data">
+            <summary>Show the data</summary>
+            <table class="data__table" id="table">
+                <caption>Visitors per day</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Visitors</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </details>
+    </figure>
+</body>
+
+</html>
