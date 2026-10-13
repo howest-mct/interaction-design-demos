@@ -1,0 +1,105 @@
+:root {
+    color-scheme: light dark;
+    --chart-1: oklch(62% 0.19 255);
+    --chart-2: oklch(72% 0.17 160);
+    --chart-grid: oklch(88% 0 0);
+    --chart-label: oklch(40% 0 0);
+    --page-bg: oklch(98% 0 0);
+    --page-text: oklch(20% 0 0);
+
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --duration-normal: 500ms;
+    --duration-slow: 1200ms;
+    --stagger: 60ms;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --chart-grid: oklch(35% 0 0);
+        --chart-label: oklch(75% 0 0);
+        --page-bg: oklch(18% 0 0);
+        --page-text: oklch(95% 0 0);
+    }
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+.demo {
+    display: grid;
+    justify-items: center;
+    gap: 3rem;
+    width: min(100%, 40rem);
+}
+
+.example {
+    display: grid;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+code {
+    font-family: ui-monospace, monospace;
+}
+
+.chart {
+    width: 100%;
+}
+
+.chart__bar {
+    fill: var(--chart-1);
+    transition: opacity 200ms ease-out;
+}
+
+/* Hover one bar: the others fade */
+.chart--bars:has(.chart__bar:hover) .chart__bar:not(:hover) {
+    opacity: 0.4;
+}
+
+.chart__line {
+    fill: none;
+    stroke: var(--chart-1);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+/*
+    Only animate when the user has no preference for reduced motion.
+    Without this media query, the chart is simply visible right away.
+*/
+@media (prefers-reduced-motion: no-preference) {
+    .chart__bar {
+        /* Without transform-box, the origin is 0,0 of the viewBox: the top left of the svg */
+        transform-box: fill-box;
+        transform-origin: bottom;
+        animation: grow var(--duration-normal) var(--ease-out-quart) both;
+        animation-delay: calc(var(--i) * var(--stagger));
+    }
+
+    .chart__line {
+        /* One dash as long as the line, shifted until it's invisible */
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: draw var(--duration-slow) var(--ease-out-quart) forwards;
+    }
+}
+
+@keyframes grow {
+    from {
+        scale: 1 0;
+    }
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

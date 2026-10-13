@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <figure class="demo">
+        <svg class="flowchart" viewBox="0 0 400 210" role="img" aria-labelledby="flow-title flow-desc">
+            <title id="flow-title">Sign in flow</title>
+            <desc id="flow-desc">
+                From Sign in you go to Register, then to Verify email.
+                From Sign in you can also go to Forgot password, which brings you back to Sign in.
+            </desc>
+
+            <!-- Not drawn until something refers to it -->
+            <defs>
+                <!-- refX and refY: the tip of the arrow lands on the end of the line -->
+                <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 Z" />
+                </marker>
+            </defs>
+
+            <!-- Edges first, so the nodes are drawn on top -->
+            <g class="edges">
+                <!-- Sign in → Register -->
+                <path d="M 120 90 H 135 V 40 H 148" marker-end="url(#arrow)" />
+                <!-- Sign in → Forgot password -->
+                <path d="M 120 110 H 135 V 160 H 148" marker-end="url(#arrow)" />
+                <!-- Register → Verify email -->
+                <line x1="250" y1="40" x2="278" y2="40" marker-end="url(#arrow)" />
+                <!-- Forgot password → back to Sign in: orient="auto" turns the arrow upwards -->
+                <path class="edges__back" d="M 200 180 V 200 H 70 V 122" marker-end="url(#arrow)" />
+            </g>
+
+            <!-- Each node is a group: inside it you count from 0,0 -->
+            <g class="node node--start" transform="translate(20 80)">
+                <rect width="100" height="40" rx="6" />
+                <text x="50" y="20">Sign in</text>
+            </g>
+            <g class="node" transform="translate(150 20)">
+                <rect width="100" height="40" rx="6" />
+                <text x="50" y="20">Register</text>
+            </g>
+            <g class="node" transform="translate(280 20)">
+                <rect width="100" height="40" rx="6" />
+                <text x="50" y="20">Verify email</text>
+            </g>
+            <g class="node" transform="translate(150 140)">
+                <rect width="100" height="40" rx="6" />
+                <text x="50" y="20">Forgot password</text>
+            </g>
+        </svg>
+    </figure>
+</body>
+
+</html>

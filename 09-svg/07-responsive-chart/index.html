@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive chart</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <h1 class="demo__title">Resize the boxes horizontally with the handle in the bottom right corner</h1>
+
+        <figure class="example">
+            <div class="example__box">
+                <svg class="chart" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline class="chart__line" points="0,40 15,25 30,35 45,10 60,20 75,5 90,15 100,12" />
+                    <circle class="chart__point" cx="45" cy="10" r="2" />
+                </svg>
+            </div>
+            <figcaption><code>preserveAspectRatio="none"</code>: the stroke and the circle stretch too</figcaption>
+        </figure>
+
+        <figure class="example">
+            <div class="example__box">
+                <svg class="chart" viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline class="chart__line chart__line--fixed" points="0,40 15,25 30,35 45,10 60,20 75,5 90,15 100,12" />
+                </svg>
+            </div>
+            <figcaption>Plus <code>vector-effect: non-scaling-stroke</code>: the stroke stays 2px</figcaption>
+        </figure>
+
+        <figure class="example">
+            <div class="example__box">
+                <svg class="chart chart--ratio" viewBox="0 0 100 50" aria-hidden="true">
+                    <polyline class="chart__line" points="0,40 15,25 30,35 45,10 60,20 75,5 90,15 100,12" />
+                    <circle class="chart__point" cx="45" cy="10" r="2" />
+                </svg>
+            </div>
+            <figcaption>Default: the aspect ratio stays 2:1, so the height grows with the width</figcaption>
+        </figure>
+    </main>
+</body>
+
+</html>

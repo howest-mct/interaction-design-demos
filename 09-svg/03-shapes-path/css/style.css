@@ -1,0 +1,64 @@
+:root {
+    color-scheme: light dark;
+    --chart-1: oklch(62% 0.19 255);
+    --chart-2: oklch(72% 0.17 160);
+    --chart-grid: oklch(88% 0 0);
+    --chart-label: oklch(40% 0 0);
+    --page-bg: oklch(98% 0 0);
+    --page-text: oklch(20% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --chart-grid: oklch(35% 0 0);
+        --chart-label: oklch(75% 0 0);
+        --page-bg: oklch(18% 0 0);
+        --page-text: oklch(95% 0 0);
+    }
+}
+
+body {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+.demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 2rem;
+}
+
+.example {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.example svg {
+    width: 100%;
+    max-width: 10rem;
+    outline: 1px solid var(--chart-grid);
+}
+
+code {
+    font-family: ui-monospace, monospace;
+    font-size: 0.8rem;
+}
+
+.shape {
+    fill: color-mix(in oklch, var(--chart-1) 25%, transparent);
+    stroke: var(--chart-1);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.shape--open {
+    fill: none;
+}
+
+.control {
+    fill: var(--chart-2);
+}

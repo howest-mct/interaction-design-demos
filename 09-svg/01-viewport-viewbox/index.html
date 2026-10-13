@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewport and viewBox</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <div class="demo__stage">
+            <!-- The dashed outline is the viewport: width and height on the page -->
+            <svg class="demo__svg" width="300" height="300" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <g class="grid">
+                    <line x1="0" y1="25" x2="100" y2="25" />
+                    <line x1="0" y1="50" x2="100" y2="50" />
+                    <line x1="0" y1="75" x2="100" y2="75" />
+                    <line x1="25" y1="0" x2="25" y2="100" />
+                    <line x1="50" y1="0" x2="50" y2="100" />
+                    <line x1="75" y1="0" x2="75" y2="100" />
+                </g>
+                <rect class="canvas" x="0" y="0" width="100" height="100" />
+                <circle class="shape" cx="50" cy="50" r="20" />
+                <rect class="shape shape--accent" x="65" y="65" width="20" height="20" rx="3" />
+                <text class="label" x="2" y="6">0,0</text>
+                <text class="label" x="98" y="97" text-anchor="end">100,100</text>
+            </svg>
+        </div>
+
+        <form class="controls">
+            <fieldset class="controls__group">
+                <legend>Viewport</legend>
+                <label>
+                    width
+                    <input type="range" name="width" min="100" max="500" value="300">
+                </label>
+                <label>
+                    height
+                    <input type="range" name="height" min="100" max="500" value="300">
+                </label>
+            </fieldset>
+
+            <fieldset class="controls__group">
+                <legend>viewBox</legend>
+                <label class="controls__check">
+                    <input type="checkbox" name="useViewBox" checked>
+                    Use a viewBox
+                </label>
+                <label>
+                    min-x
+                    <input type="range" name="vbX" min="-50" max="50" value="0">
+                </label>
+                <label>
+                    min-y
+                    <input type="range" name="vbY" min="-50" max="50" value="0">
+                </label>
+                <label>
+                    width
+                    <input type="range" name="vbWidth" min="20" max="200" value="100">
+                </label>
+                <label>
+                    height
+                    <input type="range" name="vbHeight" min="20" max="200" value="100">
+                </label>
+                <label>
+                    preserveAspectRatio
+                    <select name="aspect">
+                        <option value="xMidYMid meet">xMidYMid meet (default)</option>
+                        <option value="xMinYMin meet">xMinYMin meet</option>
+                        <option value="xMaxYMax meet">xMaxYMax meet</option>
+                        <option value="xMidYMid slice">xMidYMid slice</option>
+                        <option value="none">none</option>
+                    </select>
+                </label>
+            </fieldset>
+
+            <output class="controls__output"></output>
+            <button class="controls__reset" type="reset">Reset</button>
+        </form>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+:root {
+    color-scheme: light dark;
+    --chart-grid: oklch(88% 0 0);
+    --page-bg: oklch(98% 0 0);
+    --page-text: oklch(20% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --chart-grid: oklch(35% 0 0);
+        --page-bg: oklch(18% 0 0);
+        --page-text: oklch(95% 0 0);
+    }
+}
+
+body {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+.demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.demo__title {
+    flex-basis: 100%;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.example {
+    display: grid;
+    gap: 1rem;
+    max-width: 18rem;
+}
+
+/* An SVG in an <img> also follows prefers-color-scheme */
+.example__icon {
+    width: 8rem;
+    height: 8rem;
+    padding: 1rem;
+    border: 1px solid var(--chart-grid);
+    border-radius: 0.5rem;
+}
+
+code {
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+}

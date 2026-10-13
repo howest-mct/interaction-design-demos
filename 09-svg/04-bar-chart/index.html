@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar chart</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!--
+        data = [4, 7, 3, 9, 6], max = 10, viewBox = 100 × 50
+
+        width per bar: 100 / 5 = 20 units (14 for the bar, 6 for the gap)
+        x      = index * 20 + 3
+        height = value / max * 50
+        y      = 50 - height (the y-axis points down)
+
+        value | x  | height | y
+        4     | 3  | 20     | 30
+        7     | 23 | 35     | 15
+        3     | 43 | 15     | 35
+        9     | 63 | 45     | 5
+        6     | 83 | 30     | 20
+    -->
+    <svg class="chart" viewBox="0 0 100 50" aria-hidden="true">
+        <rect class="bar" x="3" y="30" width="14" height="20" />
+        <rect class="bar" x="23" y="15" width="14" height="35" />
+        <rect class="bar" x="43" y="35" width="14" height="15" />
+        <rect class="bar" x="63" y="5" width="14" height="45" />
+        <rect class="bar" x="83" y="20" width="14" height="30" />
+    </svg>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut chart and progress ring</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <!--
+            r = 15.9155 gives a circumference of 2 * π * r = 100,
+            so stroke-dasharray works in percentages.
+        -->
+        <section class="example">
+            <h2 class="example__title">Donut chart</h2>
+            <svg class="donut" viewBox="0 0 42 42" aria-hidden="true">
+                <!-- A stroke starts at 3 o'clock: rotate the group so it starts at 12 o'clock -->
+                <g transform="rotate(-90 21 21)">
+                    <circle class="donut__track" cx="21" cy="21" r="15.9155" />
+                    <!-- Each segment: a dash of its own size, shifted by the sum of the previous ones -->
+                    <circle class="donut__segment donut__segment--1" cx="21" cy="21" r="15.9155"
+                        stroke-dasharray="50 50" stroke-dashoffset="0" />
+                    <circle class="donut__segment donut__segment--2" cx="21" cy="21" r="15.9155"
+                        stroke-dasharray="30 70" stroke-dashoffset="-50" />
+                    <circle class="donut__segment donut__segment--3" cx="21" cy="21" r="15.9155"
+                        stroke-dasharray="20 80" stroke-dashoffset="-80" />
+                </g>
+            </svg>
+            <ul class="legend">
+                <li class="legend__item legend__item--1">Desktop: 50%</li>
+                <li class="legend__item legend__item--2">Mobile: 30%</li>
+                <li class="legend__item legend__item--3">Tablet: 20%</li>
+            </ul>
+        </section>
+
+        <section class="example">
+            <h2 class="example__title">Progress rings</h2>
+            <div class="rings">
+                <!-- Only the stroke-dasharray changes: a dash of the value, a gap of the rest -->
+                <svg class="donut donut--small" viewBox="0 0 42 42" aria-hidden="true">
+                    <g transform="rotate(-90 21 21)">
+                        <circle class="donut__track" cx="21" cy="21" r="15.9155" />
+                        <circle class="ring__value" cx="21" cy="21" r="15.9155" stroke-dasharray="25 75" />
+                    </g>
+                    <text class="ring__label" x="21" y="21">25%</text>
+                </svg>
+                <svg class="donut donut--small" viewBox="0 0 42 42" aria-hidden="true">
+                    <g transform="rotate(-90 21 21)">
+                        <circle class="donut__track" cx="21" cy="21" r="15.9155" />
+                        <circle class="ring__value" cx="21" cy="21" r="15.9155" stroke-dasharray="50 50" />
+                    </g>
+                    <text class="ring__label" x="21" y="21">50%</text>
+                </svg>
+                <svg class="donut donut--small" viewBox="0 0 42 42" aria-hidden="true">
+                    <g transform="rotate(-90 21 21)">
+                        <circle class="donut__track" cx="21" cy="21" r="15.9155" />
+                        <circle class="ring__value" cx="21" cy="21" r="15.9155" stroke-dasharray="72 28" />
+                    </g>
+                    <text class="ring__label" x="21" y="21">72%</text>
+                </svg>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

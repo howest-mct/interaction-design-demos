@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes and paths</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <rect class="shape" x="5" y="10" width="40" height="30" rx="4" />
+            </svg>
+            <figcaption><code>&lt;rect x="5" y="10" width="40" height="30" rx="4" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <circle class="shape" cx="25" cy="25" r="18" />
+            </svg>
+            <figcaption><code>&lt;circle cx="25" cy="25" r="18" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <ellipse class="shape" cx="25" cy="25" rx="20" ry="10" />
+            </svg>
+            <figcaption><code>&lt;ellipse cx="25" cy="25" rx="20" ry="10" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <line class="shape" x1="5" y1="45" x2="45" y2="5" />
+            </svg>
+            <figcaption><code>&lt;line x1="5" y1="45" x2="45" y2="5" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <polyline class="shape shape--open" points="5 40, 15 15, 25 35, 35 10, 45 30" />
+            </svg>
+            <figcaption><code>&lt;polyline points="5 40, 15 15, 25 35, 35 10, 45 30" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <polygon class="shape" points="25 5, 45 40, 5 40" />
+            </svg>
+            <figcaption><code>&lt;polygon points="25 5, 45 40, 5 40" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <!-- Move, line, horizontal line, quadratic curve, close -->
+                <path class="shape" d="M 5 45 L 15 10 H 30 Q 45 10 45 45 Z" />
+                <!-- The control point of the curve -->
+                <circle class="control" cx="45" cy="10" r="1.5" />
+            </svg>
+            <figcaption><code>&lt;path d="M 5 45 L 15 10 H 30 Q 45 10 45 45 Z" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <!-- Arc: rx ry rotation large-arc-flag sweep-flag x y -->
+                <path class="shape" d="M 5 35 A 20 20 0 0 1 45 35 Z" />
+            </svg>
+            <figcaption><code>&lt;path d="M 5 35 A 20 20 0 0 1 45 35 Z" /&gt;</code></figcaption>
+        </figure>
+
+        <figure class="example">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+                <!-- Lowercase commands: relative to the previous point -->
+                <path class="shape" d="M 10 10 h 30 v 30 h -30 z" />
+            </svg>
+            <figcaption><code>&lt;path d="M 10 10 h 30 v 30 h -30 z" /&gt;</code></figcaption>
+        </figure>
+    </main>
+</body>
+
+</html>

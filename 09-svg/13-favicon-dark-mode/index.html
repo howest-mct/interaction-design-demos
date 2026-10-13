@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark mode favicon</title>
+    <!-- Fallback for browsers without SVG favicons first, the SVG version last -->
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <h1 class="demo__title">Switch your OS between light and dark mode, and watch the tab and the icons below</h1>
+
+        <figure class="example">
+            <img class="example__icon" src="favicon-export.svg" alt="">
+            <figcaption><code>favicon-export.svg</code>: straight from Figma, one hardcoded color</figcaption>
+        </figure>
+
+        <figure class="example">
+            <img class="example__icon" src="favicon.svg" alt="">
+            <figcaption><code>favicon.svg</code>: cleaned up, the color is a custom property with a dark mode value</figcaption>
+        </figure>
+    </main>
+</body>
+
+</html>

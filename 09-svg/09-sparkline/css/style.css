@@ -1,0 +1,89 @@
+:root {
+    color-scheme: light dark;
+    --chart-1: oklch(62% 0.19 255);
+    --chart-up: oklch(55% 0.15 150);
+    --chart-down: oklch(55% 0.2 25);
+    --chart-grid: oklch(88% 0 0);
+    --chart-label: oklch(40% 0 0);
+    --page-bg: oklch(98% 0 0);
+    --page-text: oklch(20% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --chart-up: oklch(75% 0.15 150);
+        --chart-down: oklch(72% 0.17 25);
+        --chart-grid: oklch(35% 0 0);
+        --chart-label: oklch(75% 0 0);
+        --page-bg: oklch(18% 0 0);
+        --page-text: oklch(95% 0 0);
+    }
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+.demo {
+    display: grid;
+    gap: 3rem;
+}
+
+.stat {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.stat__label {
+    color: var(--chart-label);
+}
+
+.stat__value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat__change {
+    font-size: 1rem;
+}
+
+/* The + or − sign gives the meaning, the color is extra */
+.stat__change--up {
+    color: var(--chart-up);
+}
+
+.stat__change--down {
+    color: var(--chart-down);
+}
+
+.demo__text {
+    font-size: 1.25rem;
+}
+
+/* In em: scales with the text around it */
+.sparkline {
+    display: inline-block;
+    width: 3em;
+    height: 1em;
+    vertical-align: middle;
+    color: var(--chart-1);
+}
+
+.sparkline--down {
+    color: var(--chart-down);
+}
+
+.sparkline polyline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}

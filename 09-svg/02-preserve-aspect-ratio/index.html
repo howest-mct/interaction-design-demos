@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preserveAspectRatio</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="demo">
+        <h1 class="demo__title">Resize the boxes with the handle in the bottom right corner</h1>
+
+        <figure class="example">
+            <div class="example__viewport">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <rect class="viewbox" width="100" height="50" />
+                    <circle class="shape" cx="25" cy="25" r="15" />
+                    <text class="label" x="70" y="25" text-anchor="middle" dominant-baseline="middle">100 × 50</text>
+                </svg>
+            </div>
+            <figcaption><code>xMidYMid meet</code> (default): everything visible</figcaption>
+        </figure>
+
+        <figure class="example">
+            <div class="example__viewport">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <rect class="viewbox" width="100" height="50" />
+                    <circle class="shape" cx="25" cy="25" r="15" />
+                    <text class="label" x="70" y="25" text-anchor="middle" dominant-baseline="middle">100 × 50</text>
+                </svg>
+            </div>
+            <figcaption><code>xMidYMid slice</code>: fill the viewport, crop the rest</figcaption>
+        </figure>
+
+        <figure class="example">
+            <div class="example__viewport">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="xMinYMin meet" aria-hidden="true">
+                    <rect class="viewbox" width="100" height="50" />
+                    <circle class="shape" cx="25" cy="25" r="15" />
+                    <text class="label" x="70" y="25" text-anchor="middle" dominant-baseline="middle">100 × 50</text>
+                </svg>
+            </div>
+            <figcaption><code>xMinYMin meet</code>: everything visible, aligned top left</figcaption>
+        </figure>
+
+        <figure class="example">
+            <div class="example__viewport">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true">
+                    <rect class="viewbox" width="100" height="50" />
+                    <circle class="shape" cx="25" cy="25" r="15" />
+                    <text class="label" x="70" y="25" text-anchor="middle" dominant-baseline="middle">100 × 50</text>
+                </svg>
+            </div>
+            <figcaption><code>none</code>: stretch, the circle is no longer a circle</figcaption>
+        </figure>
+    </main>
+</body>
+
+</html>

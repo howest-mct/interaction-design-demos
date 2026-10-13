@@ -1,0 +1,124 @@
+:root {
+    color-scheme: light dark;
+    --chart-1: oklch(62% 0.19 255);
+    --chart-2: oklch(72% 0.17 160);
+    --chart-grid: oklch(88% 0 0);
+    --chart-label: oklch(40% 0 0);
+    --page-bg: oklch(98% 0 0);
+    --page-text: oklch(20% 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --chart-grid: oklch(35% 0 0);
+        --chart-label: oklch(75% 0 0);
+        --page-bg: oklch(18% 0 0);
+        --page-text: oklch(95% 0 0);
+    }
+}
+
+body {
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background-color: var(--page-bg);
+    color: var(--page-text);
+}
+
+.demo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.demo__stage {
+    display: grid;
+    place-items: center;
+    width: 520px;
+    height: 520px;
+}
+
+/* The viewport: the dashed outline */
+.demo__svg {
+    outline: 2px dashed var(--chart-label);
+}
+
+.grid line {
+    stroke: var(--chart-grid);
+    stroke-width: 0.5;
+}
+
+.canvas {
+    fill: none;
+    stroke: var(--chart-label);
+    stroke-width: 0.5;
+}
+
+.shape {
+    fill: var(--chart-1);
+}
+
+.shape--accent {
+    fill: var(--chart-2);
+}
+
+.label {
+    fill: var(--chart-label);
+    font-size: 5px;
+}
+
+.controls {
+    display: grid;
+    gap: 1.5rem;
+    width: 20rem;
+}
+
+.controls__group {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.controls__group legend {
+    margin-block-end: 0.5rem;
+    font-weight: 700;
+}
+
+.controls label {
+    display: grid;
+    gap: 0.25rem;
+    font-family: ui-monospace, monospace;
+}
+
+.controls .controls__check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+}
+
+.controls label:has(:disabled) {
+    opacity: 0.4;
+}
+
+.controls select {
+    padding: 0.25rem;
+    font: inherit;
+}
+
+.controls__output {
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.controls__reset {
+    justify-self: start;
+    padding: 0.5rem 1rem;
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
