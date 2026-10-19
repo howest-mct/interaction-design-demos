@@ -338,6 +338,42 @@ hr {
   animation-timing-function: var(--ease-decelerate);
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-bottom {
+  from {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes slide-to-bottom {
+  to {
+    transform: translateY(50px);
+  }
+}
+
+::view-transition-new(product-detail-body) {
+  animation:
+    210ms var(--ease-standard) 90ms both fade-in,
+    300ms var(--ease-decelerate) both slide-from-bottom;
+}
+
+::view-transition-old(product-detail-body) {
+  animation:
+    90ms var(--ease-accelerate) both fade-out,
+    300ms var(--ease-decelerate) both slide-to-bottom;
+}
+
 /* Categories */
 
 .category + .category {
