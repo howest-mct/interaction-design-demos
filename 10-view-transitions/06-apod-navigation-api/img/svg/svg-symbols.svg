@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="c-symbolset">
+    <symbol id="c-symbol-close" viewBox="0 0 24 24">
+      <title>c-symbol-close icon</title>
+      <path d="M4.293 5.707l14 14 1.414-1.414-14-14z"/><path d="M5.707 19.707l14-14-1.414-1.414-14 14z"/>
+    </symbol>
+    <symbol id="c-symbol-hamburger" viewBox="0 0 24 24">
+      <title>c-symbol-hamburger icon</title>
+      <path fill-rule="evenodd" d="M2 5h20v2H2V5zm0 12h20v2H2v-2zm0-6h20v2H2v-2z"/>
+    </symbol></svg>
