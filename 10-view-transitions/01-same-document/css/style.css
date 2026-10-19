@@ -135,7 +135,7 @@ body {
 .card__close {
   grid-area: 1 / 1;
   place-self: start end;
-  margin: 1.5rem;
+  margin: 1rem;
   border: 0;
   background: none;
   padding: 0;
@@ -151,7 +151,7 @@ body {
   border-radius: 1rem;
 
   .card__open {
-    font-size: 6rem;
+    font-size: 3rem;
     letter-spacing: -0.02em;
     cursor: default;
 
