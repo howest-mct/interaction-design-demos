@@ -1,0 +1,205 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.1);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-down {
+  to {
+    transform: scale(0.1);
+  }
+}
+
+@keyframes rotate-out {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+:root {
+  --duration-card: 400ms;
+  --duration-close: 150ms;
+  --color-purple: oklch(0.44 0.23 311.11);
+  --color-pink: oklch(0.66 0.26 16.42);
+  --color-yellow: oklch(0.84 0.2 86.18);
+  --color-ocean: oklch(0.7 0.25 151.84);
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+html {
+  font-size: 125%;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.demo__grid {
+  --gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--gap);
+  width: calc(40vw + var(--gap));
+  height: calc(40vh + var(--gap));
+
+  /* met een open kaart: die krijgt de bovenste rij, de rest komt eronder */
+  &:has(.card[aria-expanded="true"]) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 2fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 0.25rem;
+  color: white;
+  transition: scale 0.1s ease-in-out;
+}
+
+/* elke kaart houdt zijn eigen plek */
+.card--one {
+  grid-area: 1 / 1;
+  background-color: var(--color-pink);
+}
+
+.card--two {
+  grid-area: 1 / 2;
+  background-color: var(--color-purple);
+}
+
+.card--three {
+  grid-area: 2 / 1;
+  background-color: var(--color-yellow);
+}
+
+.card--four {
+  grid-area: 2 / 2;
+  background-color: var(--color-ocean);
+}
+
+.card__title {
+  grid-area: 1 / 1;
+  margin: 0;
+  font: inherit;
+}
+
+.card__open {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit;
+  cursor: pointer;
+
+  /* de hele kaart is klikbaar */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.card__close {
+  grid-area: 1 / 1;
+  place-self: start end;
+  margin: 1.5rem;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  line-height: 0;
+}
+
+/* de geopende kaart ligt over de andere kaarten heen */
+.card.is-open {
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 1;
+  border-radius: 1rem;
+
+  .card__open {
+    font-size: 6rem;
+    letter-spacing: -0.02em;
+    cursor: default;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .card__close {
+    view-transition-name: close-icon;
+  }
+}
+
+/* de andere kaarten verdwijnen zolang er een kaart open is */
+.demo__grid:has(.is-open) .card:not(.is-open) {
+  visibility: hidden;
+}
+
+::view-transition-group(*) {
+  animation-duration: var(--duration-card);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* openen: de sluitknop verschijnt pas als de kaart klaar is met groeien */
+::view-transition-new(close-icon) {
+  animation:
+    var(--duration-close) ease var(--duration-card) both fade-in,
+    var(--duration-close) ease-out var(--duration-card) both scale-up,
+    var(--duration-close) ease-out var(--duration-card) both rotate-in;
+}
+
+/* sluiten: de sluitknop verdwijnt eerst, daarna krimpt de kaart */
+html[data-direction="close"]::view-transition-group(*) {
+  animation-delay: var(--duration-close);
+  animation-fill-mode: both;
+}
+
+html[data-direction="close"]::view-transition-old(close-icon) {
+  animation:
+    var(--duration-close) ease both fade-out,
+    var(--duration-close) ease-in both scale-down,
+    var(--duration-close) ease-in both rotate-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
