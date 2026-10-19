@@ -808,10 +808,13 @@
 }
 
 body {
+  padding: 2rem;
+}
+
+.boxes {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  padding: 2rem;
+  min-height: calc(100vh - 4rem);
   gap: 2rem;
 }
 
