@@ -12,7 +12,7 @@ const moveDot = () => {
 };
 
 dot.addEventListener("click", function (event) {
-  moveDot();
+  // moveDot();
   // now with viewtransition
-  // document.startViewTransition(() => moveDot());
+  document.startViewTransition(() => moveDot());
 });

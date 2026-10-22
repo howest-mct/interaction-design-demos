@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Libre-Caslon-Condensed-Var";
-  src: url("../fonts/LibreCaslonCondensed.woff2")
-    format("woff2-variations");
+  src: url("../fonts/LibreCaslonCondensed.woff2") format("woff2-variations");
 }
 
 :root {
@@ -115,35 +114,6 @@
   animation-name: slide-in;
   animation-delay: calc(var(--view-transition-duration) / 2);
   animation-timing-function: var(--view-transition-slide-in-ease);
-}
-
-[data-transition="reload"] {
-  &::view-transition {
-    background: transparent;
-  }
-
-  &::view-transition-old(root) {
-    display: none;
-  }
-
-  &::view-transition-new(root) {
-    animation-name: none;
-  }
-}
-
-[data-transition="pop"] {
-  &::view-transition-old(root) {
-    animation-name: slide-out;
-    animation-timing-function: var(--view-transition-slide-out-ease);
-    animation-duration: var(--view-transition-duration);
-  }
-
-  &::view-transition-new(root) {
-    animation-name: fade-in;
-    animation-duration: var(--view-transition-duration);
-    animation-timing-function: var(--view-transition-fade-in-ease);
-    z-index: -1;
-  }
 }
 
 html {

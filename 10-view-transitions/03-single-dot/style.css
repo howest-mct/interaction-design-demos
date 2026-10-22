@@ -827,7 +827,7 @@ body {
 }
 
 .two {
-  /* place-content: end; */
+  place-content: end;
 }
 
 .dot {
@@ -838,15 +838,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* view-transition-name: dot; */
+  view-transition-name: dot;
 }
 
 ::view-transition-group(dot) {
   animation-duration: 1.5s;
-  animation-timing-function: var(--elastic-easing);
+  /* animation-timing-function: var(--elastic-easing); */
   /* animation-duration: 1s; */
   /* animation-timing-function: var(--spring-easing); */
   /* animation-duration: .5s; */
-  /* animation-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); */
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   /* animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275); */
 }

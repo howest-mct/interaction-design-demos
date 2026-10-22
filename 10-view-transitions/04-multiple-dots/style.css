@@ -90,6 +90,6 @@ body {
 
 ::view-transition-group(.dot) {
   animation-duration: 0.75s;
-  animation-timing-function: var(--ease-elastic);
-  animation-delay: calc((sibling-index() - 1) * 100ms);
+  /* animation-timing-function: var(--ease-elastic); */
+  /* animation-delay: calc((sibling-index() - 1) * 100ms); */
 }
